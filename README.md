@@ -38,7 +38,7 @@ You will see a few more dialogs (including ones that may ask for your GitHub use
 
 1. Push **OK** to complete the commit. You may get no confirmation, but you can check GitHub to see if the code now exists there.
 
-####Completing the turn-in process
+#### Completing the turn-in process
 
 Be sure to name your assignment on BitBucket so that I can easily identify it. I'm going to go to your profile and look for this assignment. If I can't easily find it, then you didn't turn it in.
 
