@@ -1,15 +1,28 @@
+/**
+ * CS 105 Theory & Practice I
+ * CRN: 62499
+ * Assignment: Obfuscated Hello World
+ * 
+ * @description I hope this is a confusing enough way of printing out "Hello, World!" sans quotations
+ * 
+ * Statement of code ownership: I hereby state that I have written all of this
+ * code and I have not copied this code from any other person or source.
+ * 
+ * @author Mattys C vanZeyl
+ * @website https://www.tysseract.net
+ */
+
 package edu.sbcc.cs105;
 
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
-//72 101 108 108 111 44 32 87 111 114 108 100 33
+//
 public class ObfuscatedHelloWorld {
 	
-	public static String contactAttempt = null;
+	public static String contactAttempt = "Alien Message";
 	
 	public static void end() {
-		for(int i=1; i <= 100; i++) {
+		for(int i=1; i <= 25; i++) {
 			System.out.println("");
 			System.out.println("      *       *      ");
 			System.out.println("*                   *");
@@ -92,17 +105,18 @@ public class ObfuscatedHelloWorld {
 		Random rand = new Random();
 		byte rando = lastRando;
 		
-		if(lastRando != expectedRando) rando = (byte) Math.abs((byte) rand.nextInt());
+		if(lastRando != expectedRando) rando = (byte) (Math.abs((byte) rand.nextInt(95)) + 31);
 		
 		return rando;
 	}
 	
-	public static boolean Contact(String lastContactAttempt, byte seed) {
-		contactAttempt = null;
+	public static boolean Contact(byte seed) {
+		String lastContactAttempt = contactAttempt;
+		contactAttempt = "";
 		boolean firstContactMade = false;
 		
 		for(int i=0; i <= 12; i++) {
-		contactAttempt = contactAttempt + (char)Rando((byte)(int)lastContactAttempt.charAt(i),seed(i+1));
+		contactAttempt = contactAttempt + (char)Rando((byte)(int)lastContactAttempt.charAt(i),(byte)seed(i+1));
 		}
 		
 		int contactValue = 0;
@@ -111,20 +125,33 @@ public class ObfuscatedHelloWorld {
 		}
 		
 		int successNum = 0;
-		if(1096 == contactValue) {
+		if(1129 == contactValue) {
 			for(int i=0; i <= 12; i++) {
-				if((int)contactAttempt.charAt(i) == (int) seed(i+1));
+				if((int)contactAttempt.charAt(i) == (int) seed(i+1)) successNum++;
 			}
 		}
 		
 		firstContactMade = successNum == 13;
+		
+		//wait
+		
+		try        
+		{
+		    Thread.sleep(100);//how long?
+		} 
+		catch(InterruptedException ex) 
+		{
+		    Thread.currentThread().interrupt();
+		}
+		
+		//stop waiting
+		
 		System.out.println(contactAttempt);
 		return firstContactMade;
 	}
 	
 	public static void main(String[] args) {
 		
-		/*
 		byte seed = 0;
 		int i = 0;
 		while(!Contact(seed)) {
@@ -132,59 +159,16 @@ public class ObfuscatedHelloWorld {
 			
 		}
 		
-		* * * * * * * * * * *
-		*                   *
-		*   Hello, World!   *
-		*                   *
-		* * * * * * * * * * *
-		
-		*   *   *   *   *   *
-		                     
-		*   Hello, World!   *
-		                     
-		*   *   *   *   *   *
-
-		  *   *   *   *   *  
-		*                   *
-		    Hello, World!    
-		*                   *
-		  *   *   *   *   *  
-		  
-		 
-		* *     *     *     *
-		                     
-		    Hello, World!    
-		*                   *
-		    *     *     *    
-		
-		* * * * * * * * * * *
-		*                   *
-		*   Hello, World!   *
-		*                   *
-		* * * * * * * * * * *
-		
-		* * * * * * * * * * *
-		*                   *
-		*   Hello, World!   *
-		*                   *
-		* * * * * * * * * * *
-		
-		
-		//for(byte i=0;i<=126;i++) {
-			//short alien = i;
-			//System.out.println(alien + " " + (char)(int)alien);
-		//}
-		
-		//String hello = "Hello, World";
-		//int helloNum = 0;
-		//for(int i=0; i < hello.length(); i++) {
-		//	helloNum = helloNum + hello.charAt(i);
-		//}
-		System.out.println(helloNum);
+		/*
+		for(byte i=0;i<=126;i++) {
+			short alien = i;
+			System.out.println(alien + " " + (char)(int)alien);
+		}
 		*/
 		
-		
 		end();
+		
+		System.out.println(i);
 		
 	}
 
