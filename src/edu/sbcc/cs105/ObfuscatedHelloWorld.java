@@ -16,7 +16,6 @@ package edu.sbcc.cs105;
 
 import java.util.Random;
 
-//
 public class ObfuscatedHelloWorld {
 	
 	public static String contactAttempt = "Alien Message";
@@ -110,7 +109,7 @@ public class ObfuscatedHelloWorld {
 		return rando;
 	}
 	
-	public static boolean Contact(byte seed) {
+	public static boolean Contact() {
 		String lastContactAttempt = contactAttempt;
 		contactAttempt = "";
 		boolean firstContactMade = false;
@@ -152,11 +151,15 @@ public class ObfuscatedHelloWorld {
 	
 	public static void main(String[] args) {
 		
-		byte seed = 0;
 		int i = 0;
-		while(!Contact(seed)) {
+		int[] fibinocci = new int[1000];
+		fibinocci[0] = 1;
+		fibinocci[1] = 1;
+		double goldenRatio = 1.61803;
+		while(!Contact()) {
 			i++;
-			
+			fibinocci[i + 3] = fibinocci[i + 2] + fibinocci[i + 1];
+			goldenRatio = fibinocci[i + 2] / fibinocci[i + 3];
 		}
 		
 		/*
@@ -169,6 +172,7 @@ public class ObfuscatedHelloWorld {
 		end();
 		
 		System.out.println(i);
+		System.out.println(goldenRatio);
 		
 	}
 
