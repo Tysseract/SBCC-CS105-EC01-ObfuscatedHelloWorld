@@ -152,14 +152,14 @@ public class ObfuscatedHelloWorld {
 	public static void main(String[] args) {
 		
 		int i = 0;
-		int[] fibinocci = new int[1000];
+		double[] fibinocci = new double[1000];
 		fibinocci[0] = 1;
 		fibinocci[1] = 1;
 		double goldenRatio = 1.61803;
 		while(!Contact()) {
+			fibinocci[i + 2] = fibinocci[i + 1] + fibinocci[i];
+			goldenRatio = fibinocci[i + 1] / fibinocci[i];
 			i++;
-			fibinocci[i + 3] = fibinocci[i + 2] + fibinocci[i + 1];
-			goldenRatio = fibinocci[i + 2] / fibinocci[i + 3];
 		}
 		
 		/*
@@ -172,6 +172,7 @@ public class ObfuscatedHelloWorld {
 		end();
 		
 		System.out.println(i);
+		System.out.println(fibinocci[i]);
 		System.out.println(goldenRatio);
 		
 	}
