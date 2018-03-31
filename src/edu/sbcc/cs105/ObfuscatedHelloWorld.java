@@ -19,6 +19,7 @@ import java.util.Random;
 public class ObfuscatedHelloWorld {
 	
 	public static String contactAttempt = "Alien Message";
+	public static int leftCount1 = 0;
 	
 	public static void end() {
 		for(int i=1; i <= 25; i++) {
@@ -118,19 +119,34 @@ public class ObfuscatedHelloWorld {
 		contactAttempt = contactAttempt + (char)Rando((byte)(int)lastContactAttempt.charAt(i),(byte)seed(i+1));
 		}
 		
+		
+		
+		
+		
 		int contactValue = 0;
 		for(int i=0; i < contactAttempt.length(); i++) {
 			contactValue = contactValue + (int) contactAttempt.charAt(i);
 		}
 		
-		int successNum = 0;
-		if(1129 == contactValue) {
-			for(int i=0; i <= 12; i++) {
-				if((int)contactAttempt.charAt(i) == (int) seed(i+1)) successNum++;
+		int sucessNum = 0;
+		for(int i=0; i <= 12; i++) {
+			if((int)contactAttempt.charAt(i) == (int) seed(i+1)) sucessNum++;
+		}
+		
+		if(sucessNum == 12) {
+			leftCount1++;
+			if(leftCount1 >= 15) {
+				contactAttempt = "";
+				for(int i=0; i <= 12; i++) {
+					contactAttempt = contactAttempt + (char)seed(i+1);
+				}
 			}
 		}
 		
-		firstContactMade = successNum == 13;
+			
+		if(1129 == contactValue) {
+			firstContactMade = sucessNum == 13;
+		}
 		
 		//wait
 		
