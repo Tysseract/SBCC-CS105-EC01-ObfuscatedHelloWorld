@@ -40,49 +40,54 @@ public class ObfuscatedHelloWorld {
 		}
 	}
 	
+	public static String printWhat(int i, int j) {
+		String print = "";
+		if(j == 1 || j == 7);
+		else if(i%4 == 0) {
+			if(j == 2)      print = "      *       *      ";
+			else if(j == 3) print = "*                   *";
+			else if(j == 4) print = "    " + contactAttempt + "    ";
+			else if(j == 5) print = "                     ";
+			else if(j == 6) print = "  *       *       *  ";
+		}
+		else if(i%4 == 1) {
+			if(j == 2)      print = "*       *       *    ";
+			else if(j == 3) print = "                     ";
+			else if(j == 4) print = "    " + contactAttempt + "   *";
+			else if(j == 5) print = "                     ";
+			else if(j == 6) print = "*       *       *    ";
+		}
+		else if(i%4 == 2) {
+			if(j == 2)      print = "  *       *       *  ";
+			else if(j == 3) print = "                     ";
+			else if(j == 4) print = "    " + contactAttempt + "    ";
+			else if(j == 5) print = "*                   *";
+			else if(j == 6) print = "      *       *      ";
+		}
+		else if(i%4 == 3) {
+			if(j == 2)      print = "    *       *       *";
+			else if(j == 3) print = "                     ";
+			else if(j == 4) print = "*   " + contactAttempt + "    ";
+			else if(j == 5) print = "                     ";
+			else if(j == 6) print = "    *       *       *";
+		}
+		return print;
+	}
+	
+	public static void printChunk(int i) {
+		for(int j=1; j <= 7; j++) {
+			System.out.println(printWhat(i, j));
+		}
+	}
+	
 	public static void end() {
-		for(int i=1; i <= 5; i++) {
+		for(int i=1; i <= 20; i++) {
 			int howLongToWait = 300; //miliseconds
 			
-			System.out.println("");
-			System.out.println("      *       *      ");
-			System.out.println("*                   *");
-			System.out.println("    " + contactAttempt + "    ");
-			System.out.println("                     ");
-			System.out.println("  *       *       *  ");
-			System.out.println("");
+			printChunk(i);
 			
 			waitFor(howLongToWait);
 			
-			System.out.println("");
-			System.out.println("*       *       *    ");
-			System.out.println("                     ");
-			System.out.println("    " + contactAttempt + "   *");
-			System.out.println("                     ");
-			System.out.println("*       *       *    ");
-			System.out.println("");
-			
-			waitFor(howLongToWait);
-			
-			System.out.println("");
-			System.out.println("  *       *       *  ");
-			System.out.println("                     ");
-			System.out.println("    " + contactAttempt + "    ");
-			System.out.println("*                   *");
-			System.out.println("      *       *      ");
-			System.out.println("");
-			
-			waitFor(howLongToWait);
-			
-			System.out.println("");
-			System.out.println("    *       *       *");
-			System.out.println("                     ");
-			System.out.println("*   " + contactAttempt + "    ");
-			System.out.println("                     ");
-			System.out.println("    *       *       *");
-			System.out.println("");
-			
-			waitFor(howLongToWait);
 		}
 	}
 	
