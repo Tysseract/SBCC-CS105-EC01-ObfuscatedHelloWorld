@@ -40,6 +40,28 @@ public class ObfuscatedHelloWorld {
 		}
 	}
 	
+	public static String printWhat2(int j) {
+		
+	}
+	
+	public static void printChunk2(i) {
+		String initialSeed = "";
+		do {
+			
+		}while()
+	}
+	
+	public static void end2() {
+		for(int i=1; i <= 20; i++) {
+			int howLongToWait = 300; //miliseconds
+			
+			printChunk2(i);
+			
+			waitFor(howLongToWait);
+			
+		}
+	}
+	
 	public static String printWhat(int i, int j) {
 		String print = "";
 		if(j == 1 || j == 7);
