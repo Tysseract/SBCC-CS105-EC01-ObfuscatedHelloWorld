@@ -212,12 +212,10 @@ public class ObfuscatedHelloWorld {
 			lastPiApprox = currentPiApprox;
 			
 			if(i%2 == 0) {
-						double denom = (i * 2) + 1;
-						currentPiApprox = currentPiApprox + (4.0 / denom);
+						currentPiApprox = currentPiApprox + (4.0 / ((i * 2) + 1));
 					}
 			else {
-						double denom = (i * 2) + 1;
-						currentPiApprox = currentPiApprox - (4.0 / denom);
+						currentPiApprox = currentPiApprox - (4.0 / ((i * 2) + 1));
 					}
 			pi = (lastPiApprox + currentPiApprox)/2.0;
 			
@@ -233,7 +231,7 @@ public class ObfuscatedHelloWorld {
 		
 		end();
 		
-		System.out.println("itterations: ");
+		System.out.println("iterations: ");
 		System.out.println(i);
 		
 		System.out.println();
