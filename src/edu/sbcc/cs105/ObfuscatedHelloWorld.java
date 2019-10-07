@@ -2,12 +2,12 @@
  * CS 105 Theory & Practice I
  * CRN: 62499
  * Assignment: Obfuscated Hello World
- * 
+ *
  * @description I hope this is a confusing and creative enough way of printing out "Hello, World!" sans quotations
- * 
+ *
  * Statement of code ownership: I hereby state that I have written all of this
  * code and I have not copied this code from any other person or source.
- * 
+ *
  * @author Mattys C vanZeyl
  * @website https://www.tysseract.net
  */
@@ -18,10 +18,10 @@ import java.util.Random;
 
 public class ObfuscatedHelloWorld {
 
-	protected static String contactAttempt = "Alien Message";
-	protected static int leftCount1 = 0;
+	private static String contactAttempt = "Alien Message";
+	private static int leftCount1 = 0;
 
-	protected static boolean isPrime(int n) {
+	private static boolean isPrime(int n) {
 	    for(int i=2;i<n;i++) {
 	        if(n%i==0)
 	            return false;
@@ -29,7 +29,7 @@ public class ObfuscatedHelloWorld {
 	    return true;
 	}
 
-	protected static void waitFor(int howLongToWait) {
+	private static void waitFor(int howLongToWait) {
 		try        
 		{
 		    Thread.sleep(howLongToWait);
@@ -62,7 +62,7 @@ public class ObfuscatedHelloWorld {
 //		}
 //	}
 
-	protected static String printWhat(int i, int j) {
+	private static String printWhat(int i, int j) {
 		String print = "";
 
 		if(i%4 == 0) {
@@ -97,7 +97,7 @@ public class ObfuscatedHelloWorld {
 		return print;
 	}
 
-	protected static void printChunk(int i) {
+	private static void printChunk(int i) {
 		StringBuilder chunk = new StringBuilder();
 		for(int j=1; j <= 7; j++) {
 			chunk.append(printWhat(i, j));
@@ -106,8 +106,8 @@ public class ObfuscatedHelloWorld {
 		System.out.print(chunk.toString());
 	}
 
-	protected static void end() {
-		int howLongToWaitBetween = 300;//miliseconds
+	private static void end() {
+		int howLongToWaitBetween = 300;//milliseconds
 		int howManyTimes = 30;
 		for(int i=1; i <= howManyTimes; i++) {
 			
@@ -118,14 +118,14 @@ public class ObfuscatedHelloWorld {
 		}
 	}
 
-	protected static byte seed(int x) {
+	private static byte seed(int x) {
 		double y = -(37 * Math.pow(x,11))/570240 + (18967 * Math.pow(x,10))/3628800 - (19153 * Math.pow(x,9))/103680 + (455699 * Math.pow(x,8))/120960 - (494327 * Math.pow(x,7))/10080 + (73543171 * Math.pow(x,6))/172800 - (258914477 * Math.pow(x,5))/103680 + (223081373 * Math.pow(x,4))/22680 - (655059671 * Math.pow(x,3))/25920 + (1006150093 * Math.pow(x,2))/25200 - (95429329 * x)/2772 + 12125;
 		byte z = (byte) y;
 		if(x == 13)z = 33;
 		return z;
 	}
 
-	protected static byte Rando(byte lastRando, byte expectedRando) {
+	private static byte Rando(byte lastRando, byte expectedRando) {
 		Random rand = new Random();
 		byte rando = lastRando;
 		
@@ -134,25 +134,24 @@ public class ObfuscatedHelloWorld {
 		return rando;
 	}
 
-	protected static void getout() {
-		contactAttempt = "";
+	private static void GetOut() {
+		StringBuilder contactAttemptBuilder = new StringBuilder();
 		for(int i=0; i <= 12; i++) {
-			contactAttempt = contactAttempt + (char)seed(i+1);
+			contactAttemptBuilder.append((char)seed(i+1));
 		}
+		contactAttempt = contactAttemptBuilder.toString();
 	}
 
-	protected static boolean Contact(int attemptIndex) {
+	private static boolean Contact(int attemptIndex) {
 		String lastContactAttempt = contactAttempt;
-		contactAttempt = "";
+		StringBuilder contactAttemptBuilder = new StringBuilder();
+
 		boolean firstContactMade = false;
 		
 		for(int i=0; i <= 12; i++) {
-		contactAttempt = contactAttempt + (char)Rando((byte)(int)lastContactAttempt.charAt(i),(byte)seed(i+1));
+			contactAttemptBuilder.append((char)Rando((byte)(int)lastContactAttempt.charAt(i),(byte)seed(i+1)));
 		}
-		
-		
-		
-		
+		contactAttempt = contactAttemptBuilder.toString();
 		
 		int contactValue = 0;
 		for(int i=0; i < contactAttempt.length(); i++) {
@@ -164,12 +163,12 @@ public class ObfuscatedHelloWorld {
 			if((int)contactAttempt.charAt(i) == (int) seed(i+1)) sucessNum++;
 		}
 		
-		if(attemptIndex >= 1000) getout();
+		if(attemptIndex >= 1000) GetOut();
 		
 		if(sucessNum == 12) {
 			leftCount1++;
 			if(leftCount1 >= 25) {
-				getout();
+				GetOut();
 			}
 		}
 		
@@ -192,22 +191,22 @@ public class ObfuscatedHelloWorld {
 		
 		int i = 0;
 		
-		double[] fibinocci = new double[1000];
-		fibinocci[0] = 1;
-		fibinocci[1] = 1;
+		double[] fibonacci = new double[1000];
+		fibonacci[0] = 1;
+		fibonacci[1] = 1;
 		double goldenRatio = 1.61803;
 		
 		int primeIndex = 0;
 		int[] primes = new int[1000];
 		
 		double pi = 0;
-		double lastPiApprox = 0;
+		double lastPiApprox;
 		double currentPiApprox = 0;
 		
 		while(!Contact(i)) {
 			
-			fibinocci[i + 2] = fibinocci[i + 1] + fibinocci[i];
-			goldenRatio = fibinocci[i + 1] / fibinocci[i];
+			fibonacci[i + 2] = fibonacci[i + 1] + fibonacci[i];
+			goldenRatio = fibonacci[i + 1] / fibonacci[i];
 			
 			if(isPrime(i)) {
 				primes[primeIndex] = i;
@@ -242,17 +241,17 @@ public class ObfuscatedHelloWorld {
 		System.out.println("itterations: ");
 		System.out.println(i);
 		
-		System.out.println("");
+		System.out.println();
 		
-		System.out.println("last fibinocci: ");
-		System.out.println(fibinocci[i]);
+		System.out.println("last fibonacci: ");
+		System.out.println(fibonacci[i]);
 		
-		System.out.println("");
+		System.out.println();
 		
 		System.out.println("approximate golden ratio: ");
 		System.out.println(goldenRatio);
 		
-		System.out.println("");
+		System.out.println();
 		
 		System.out.println("Leibniz's approximate pi (to " + i + " itterations): ");
 		System.out.println(pi);
