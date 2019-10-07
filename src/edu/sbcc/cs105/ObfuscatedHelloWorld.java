@@ -17,19 +17,19 @@ package edu.sbcc.cs105;
 import java.util.Random;
 
 public class ObfuscatedHelloWorld {
-	
-	public static String contactAttempt = "Alien Message";
-	public static int leftCount1 = 0;
-	
-	public static boolean isPrime(int n) {
+
+	protected static String contactAttempt = "Alien Message";
+	protected static int leftCount1 = 0;
+
+	protected static boolean isPrime(int n) {
 	    for(int i=2;i<n;i++) {
 	        if(n%i==0)
 	            return false;
 	    }
 	    return true;
 	}
-	
-	public static void waitFor(int howLongToWait) {
+
+	protected static void waitFor(int howLongToWait) {
 		try        
 		{
 		    Thread.sleep(howLongToWait);
@@ -40,87 +40,92 @@ public class ObfuscatedHelloWorld {
 		}
 	}
 	
-	public static String printWhat2(int j) {
-		
-	}
-	
-	public static void printChunk2(i) {
-		String initialSeed = "";
-		do {
-			
-		}while()
-	}
-	
-	public static void end2() {
-		for(int i=1; i <= 20; i++) {
-			int howLongToWait = 300; //miliseconds
-			
-			printChunk2(i);
-			
-			waitFor(howLongToWait);
-			
-		}
-	}
-	
-	public static String printWhat(int i, int j) {
+//	public static String printWhat2(int j) {
+//
+//	}
+//
+//	public static void printChunk2(i) {
+//		String initialSeed = "";
+//		do {
+//
+//		}while()
+//	}
+
+//	public static void end2() {
+//		for(int i=1; i <= 20; i++) {
+//			int howLongToWait = 300; //miliseconds
+//
+//			printChunk2(i);
+//
+//			waitFor(howLongToWait);
+//
+//		}
+//	}
+
+	protected static String printWhat(int i, int j) {
 		String print = "";
-		if(j == 1 || j == 7);
-		else if(i%4 == 0) {
+
+		if(i%4 == 0) {
 			if(j == 2)      print = "      *       *      ";
 			else if(j == 3) print = "*                   *";
 			else if(j == 4) print = "    " + contactAttempt + "    ";
 			else if(j == 5) print = "                     ";
 			else if(j == 6) print = "  *       *       *  ";
 		}
-		else if(i%4 == 1) {
+		if(i%4 == 1) {
 			if(j == 2)      print = "*       *       *    ";
 			else if(j == 3) print = "                     ";
 			else if(j == 4) print = "    " + contactAttempt + "   *";
 			else if(j == 5) print = "                     ";
 			else if(j == 6) print = "*       *       *    ";
 		}
-		else if(i%4 == 2) {
+		if(i%4 == 2) {
 			if(j == 2)      print = "  *       *       *  ";
 			else if(j == 3) print = "                     ";
 			else if(j == 4) print = "    " + contactAttempt + "    ";
 			else if(j == 5) print = "*                   *";
 			else if(j == 6) print = "      *       *      ";
 		}
-		else if(i%4 == 3) {
+		if(i%4 == 3) {
 			if(j == 2)      print = "    *       *       *";
 			else if(j == 3) print = "                     ";
 			else if(j == 4) print = "*   " + contactAttempt + "    ";
 			else if(j == 5) print = "                     ";
 			else if(j == 6) print = "    *       *       *";
 		}
+		//if(j == 1 || j == 7) print = "";
 		return print;
 	}
-	
-	public static void printChunk(int i) {
+
+	protected static void printChunk(int i) {
+		StringBuilder chunk = new StringBuilder();
 		for(int j=1; j <= 7; j++) {
-			System.out.println(printWhat(i, j));
+			chunk.append(printWhat(i, j));
+			chunk.append("\r\n");
 		}
+		System.out.print(chunk.toString());
 	}
-	
-	public static void end() {
-		for(int i=1; i <= 20; i++) {
-			int howLongToWait = 300; //miliseconds
+
+	protected static void end() {
+		int howLongToWaitBetween = 300;//miliseconds
+		int howManyTimes = 30;
+		for(int i=1; i <= howManyTimes; i++) {
 			
 			printChunk(i);
 			
-			waitFor(howLongToWait);
+			waitFor(howLongToWaitBetween);
 			
 		}
 	}
-	
-	public static byte seed(int x) {
+
+	protected static byte seed(int x) {
 		double y = -(37 * Math.pow(x,11))/570240 + (18967 * Math.pow(x,10))/3628800 - (19153 * Math.pow(x,9))/103680 + (455699 * Math.pow(x,8))/120960 - (494327 * Math.pow(x,7))/10080 + (73543171 * Math.pow(x,6))/172800 - (258914477 * Math.pow(x,5))/103680 + (223081373 * Math.pow(x,4))/22680 - (655059671 * Math.pow(x,3))/25920 + (1006150093 * Math.pow(x,2))/25200 - (95429329 * x)/2772 + 12125;
 		byte z = (byte) y;
 		if(x == 13)z = 33;
 		return z;
 	}
-	
-	public static byte Rando(byte lastRando, byte expectedRando) {
+
+	protected static byte Rando(byte lastRando, byte expectedRando) {
 		Random rand = new Random();
 		byte rando = lastRando;
 		
@@ -128,15 +133,15 @@ public class ObfuscatedHelloWorld {
 		
 		return rando;
 	}
-	
-	public static void getout() {
+
+	protected static void getout() {
 		contactAttempt = "";
 		for(int i=0; i <= 12; i++) {
 			contactAttempt = contactAttempt + (char)seed(i+1);
 		}
 	}
-	
-	public static boolean Contact(int attemptIndex) {
+
+	protected static boolean Contact(int attemptIndex) {
 		String lastContactAttempt = contactAttempt;
 		contactAttempt = "";
 		boolean firstContactMade = false;
@@ -182,7 +187,7 @@ public class ObfuscatedHelloWorld {
 		System.out.println(contactAttempt);
 		return firstContactMade;
 	}
-	
+
 	public static void main(String[] args) {
 		
 		int i = 0;
