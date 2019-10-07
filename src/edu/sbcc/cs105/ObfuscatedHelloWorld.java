@@ -1,22 +1,19 @@
-/**
- * CS 105 Theory & Practice I
- * CRN: 62499
- * Assignment: Obfuscated Hello World
- *
- * @description I hope this is a confusing and creative enough way of printing out "Hello, World!" sans quotations
- *
- * Statement of code ownership: I hereby state that I have written all of this
- * code and I have not copied this code from any other person or source.
- *
- * @author Mattys C vanZeyl
- * @website https://www.tysseract.net
- */
-
 package edu.sbcc.cs105;
-
 import java.util.*;
-
 public class ObfuscatedHelloWorld {
+	/**
+      CS 105 Theory & Practice I
+      CRN: 62499
+      Assignment: Obfuscated Hello World
+
+      @description I hope this is a confusing and creative enough way of printing out "Hello, World!" sans quotations
+     *
+     * Statement of code ownership: I hereby state that I have written all of this
+     * code and I have not copied this code from any other person or source.
+     *
+     * @author Mattys C vanZeyl
+     * @website https://www.tysseract.net
+     */
 
 	private static String contactAttempt = "Alien Message";
 	private static int leftCount1 = 0;
@@ -119,7 +116,7 @@ public class ObfuscatedHelloWorld {
 	}
 
 	private static byte seed(int x) {
-		double y = -(37 * Math.pow(x,11))/570240 + (18967 * Math.pow(x,10))/3628800 - (19153 * Math.pow(x,9))/103680 + (455699 * Math.pow(x,8))/120960 - (494327 * Math.pow(x,7))/10080 + (73543171 * Math.pow(x,6))/172800 - (258914477 * Math.pow(x,5))/103680 + (223081373 * Math.pow(x,4))/22680 - (655059671 * Math.pow(x,3))/25920 + (1006150093 * Math.pow(x,2))/25200 - (95429329 * x)/2772 + 12125;
+		double y = -(37 * Math.pow(x,11))/570240 + (18967 * Math.pow(x,10))/3628800 - (19153 * Math.pow(x,9))/103680 + (455699 * Math.pow(x,8))/120960 - (494327 * Math.pow(x,7))/10080 + (73543171 * Math.pow(x,6))/172800 - (258914477 * Math.pow(x,5))/103680 + (223081373 * Math.pow(x,4))/22680 - (655059671 * Math.pow(x,3))/25920 + (1006150093 * Math.pow(x,2))/25200 - Math.floor((95429329.0 * x)/2772.0) + 12125;
 		byte z = (byte) y;
 		if(x == 13)z = 33;
 		return z;
