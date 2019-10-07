@@ -14,7 +14,7 @@
 
 package edu.sbcc.cs105;
 
-import java.util.Random;
+import java.util.*;
 
 public class ObfuscatedHelloWorld {
 
@@ -149,7 +149,7 @@ public class ObfuscatedHelloWorld {
 		boolean firstContactMade = false;
 		
 		for(int i=0; i <= 12; i++) {
-			contactAttemptBuilder.append((char)Rando((byte)(int)lastContactAttempt.charAt(i),(byte)seed(i+1)));
+			contactAttemptBuilder.append((char)Rando((byte)(int)lastContactAttempt.charAt(i), seed(i+1)));
 		}
 		contactAttempt = contactAttemptBuilder.toString();
 		
@@ -195,9 +195,8 @@ public class ObfuscatedHelloWorld {
 		fibonacci[0] = 1;
 		fibonacci[1] = 1;
 		double goldenRatio = 1.61803;
-		
-		int primeIndex = 0;
-		int[] primes = new int[1000];
+
+		var primes = new LinkedList<Integer>();
 		
 		double pi = 0;
 		double lastPiApprox;
@@ -209,8 +208,7 @@ public class ObfuscatedHelloWorld {
 			goldenRatio = fibonacci[i + 1] / fibonacci[i];
 			
 			if(isPrime(i)) {
-				primes[primeIndex] = i;
-				primeIndex++;
+				primes.add(i);
 			}
 			
 			
@@ -256,7 +254,12 @@ public class ObfuscatedHelloWorld {
 		System.out.println("Leibniz's approximate pi (to " + i + " itterations): ");
 		System.out.println(pi);
 		System.out.println("?= real pi: " + Math.PI);
-		
+
+        System.out.println("Primes: ");
+        for (Integer prime : primes) {
+            System.out.print(prime + ", ");
+        }
+        System.out.println();
 	}
 
 }
